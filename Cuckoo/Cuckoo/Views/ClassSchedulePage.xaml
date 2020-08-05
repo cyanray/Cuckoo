@@ -9,8 +9,12 @@
             UnselectedTabColor="{StaticResource SecondaryTextColor}"
             SelectedTabColor="{StaticResource PrimaryTextColor}"
             BackgroundColor="WhiteSmoke"
-            Title="课课课表">
+            Title="课表">
 
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Text="第12周" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </TabbedPage.ToolbarItems>
+    
     <TabbedPage.Children>
         <views:CoursesListView Title="周一" />
         <views:CoursesListView Title="周二" />

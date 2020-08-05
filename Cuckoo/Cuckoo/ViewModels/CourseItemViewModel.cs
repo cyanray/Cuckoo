@@ -12,7 +12,6 @@ namespace Cuckoo.ViewModels
 
         public CourseItemViewModel()
         {
-            Title = "课课课表";
             Items = new ObservableCollection<IListItem>();
         }
 
