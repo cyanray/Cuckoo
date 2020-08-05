@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:models="clr-namespace:Cuckoo.Models"
+             xmlns:models="clr-namespace:Cuckoo.Models" 
+             xmlns:controls="clr-namespace:Cuckoo.Controls"
              mc:Ignorable="d"
              x:Class="Cuckoo.Views.CoursesListView">
     <ContentPage.Resources>
@@ -38,7 +39,7 @@
             <DataTemplate x:Key="invalidTemplate">
 
                 <Grid Padding="30,10,30,5">
-                    <controls:DashedFrame 
+                    <controls:BetterFrame 
                         HasShadow="False"
                         BorderColor="#CCCCCC"
                         HeightRequest="30" 
@@ -52,7 +53,7 @@
                                 TextColor="#CCCCCC"
                                 FontSize="20" />
 
-                    </controls:DashedFrame>
+                    </controls:BetterFrame>
                 </Grid>
 
             </DataTemplate>

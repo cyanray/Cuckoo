@@ -30,6 +30,5 @@
 
   <ItemGroup>
     <Folder Include="ViewModels\" />
-    <Folder Include="Controls\" />
   </ItemGroup>
 </Project>
