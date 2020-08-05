@@ -16,13 +16,42 @@
     </TabbedPage.ToolbarItems>
     
     <TabbedPage.Children>
-        <views:CoursesListView Title="周一" />
-        <views:CoursesListView Title="周二" />
-        <views:CoursesListView Title="周三" />
-        <views:CoursesListView Title="周四" />
-        <views:CoursesListView Title="周五" />
-        <views:CoursesListView Title="周六" />
-        <views:CoursesListView Title="周日" />
+        <views:CoursesListView Title="周一">
+            <x:Arguments>
+                <x:Int32>0</x:Int32>
+            </x:Arguments>
+        </views:CoursesListView>
+        
+        <views:CoursesListView Title="周二" >
+            <x:Arguments>
+                <x:Int32>1</x:Int32>
+            </x:Arguments>
+        </views:CoursesListView>
+        <views:CoursesListView Title="周三" >
+            <x:Arguments>
+                <x:Int32>2</x:Int32>
+            </x:Arguments>
+        </views:CoursesListView>
+        <views:CoursesListView Title="周四" >
+            <x:Arguments>
+                <x:Int32>3</x:Int32>
+            </x:Arguments>
+        </views:CoursesListView>
+        <views:CoursesListView Title="周五" >
+            <x:Arguments>
+                <x:Int32>4</x:Int32>
+            </x:Arguments>
+        </views:CoursesListView>
+        <views:CoursesListView Title="周六" >
+            <x:Arguments>
+                <x:Int32>5</x:Int32>
+            </x:Arguments>
+        </views:CoursesListView>
+        <views:CoursesListView Title="周日" >
+            <x:Arguments>
+                <x:Int32>6</x:Int32>
+            </x:Arguments>
+        </views:CoursesListView>
     </TabbedPage.Children>
     
 </TabbedPage>
