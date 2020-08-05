@@ -2,9 +2,68 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:models="clr-namespace:Cuckoo.Models"
              mc:Ignorable="d"
              x:Class="Cuckoo.Views.CoursesListView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="validTemplate">
+                <StackLayout>
+                    <Grid Padding="30,10,30,5">
+                        <Frame 
+                        VerticalOptions="CenterAndExpand"
+                        CornerRadius="10"
+                        Padding="0"
+                        BackgroundColor="White">
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Title}" 
+                                d:Text="{Binding .}"
+                                LineBreakMode="WordWrap" 
+                                TextColor="#757575"
+                                FontSize="20" />
+                                <Label Text="{Binding Classroom}" 
+                                d:Text="Item descripton"
+                                LineBreakMode="NoWrap"
+                                TextColor="#757575"
+                                FontSize="13" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+            </DataTemplate>
+            <DataTemplate x:Key="invalidTemplate">
+
+                <Grid Padding="30,10,30,5">
+                    <controls:DashedFrame 
+                        HasShadow="False"
+                        BorderColor="#CCCCCC"
+                        HeightRequest="30" 
+                        CornerRadius="15"
+                        BackgroundColor="#FAFAFA"
+                        BorderStroke="3">
+
+                        <Label Text="没有课" 
+                               HorizontalTextAlignment="Center"
+                                LineBreakMode="NoWrap" 
+                                TextColor="#CCCCCC"
+                                FontSize="20" />
+
+                    </controls:DashedFrame>
+                </Grid>
+
+            </DataTemplate>
+            <models:ListItemTemplateSelector x:Key="listItemTemplateSelector"
+                CourseTemplate="{StaticResource courseTemplate}"
+                GroupTemplate="{StaticResource groupTemplate}"
+                EmptyTemplate="{StaticResource emptyTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
 
     <StackLayout>
         <Label Text="Welcome to Xamarin.Forms!"
