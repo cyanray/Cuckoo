@@ -9,54 +9,56 @@
              x:Class="Cuckoo.Views.CoursesListView">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <DataTemplate x:Key="validTemplate">
-                <StackLayout>
-                    <Grid Padding="30,10,30,5">
-                        <Frame 
+            <DataTemplate x:Key="courseTemplate">
+                <Grid Padding="30,10,30,5">
+                    <Frame 
                         VerticalOptions="CenterAndExpand"
                         CornerRadius="10"
                         Padding="0"
                         BackgroundColor="White">
-                            <StackLayout Padding="10">
-                                <Label Text="{Binding Title}" 
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding CourseName}" 
                                 d:Text="{Binding .}"
                                 LineBreakMode="WordWrap" 
                                 TextColor="#757575"
                                 FontSize="20" />
-                                <Label Text="{Binding Classroom}" 
-                                d:Text="Item descripton"
+                            <Label Text="{Binding Classroom}" 
+                                d:Text="classroom"
                                 LineBreakMode="NoWrap"
                                 TextColor="#757575"
                                 FontSize="13" />
-                                <StackLayout.GestureRecognizers>
+                            <!--<StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
-                                </StackLayout.GestureRecognizers>
-                            </StackLayout>
-                        </Frame>
-                    </Grid>
-                </StackLayout>
+                                </StackLayout.GestureRecognizers>-->
+                        </StackLayout>
+                    </Frame>
+                </Grid>
             </DataTemplate>
-            <DataTemplate x:Key="invalidTemplate">
-
+            
+            <DataTemplate x:Key="emptyTemplate">
                 <Grid Padding="30,10,30,5">
                     <controls:BetterFrame 
                         HasShadow="False"
                         BorderColor="#CCCCCC"
                         HeightRequest="30" 
                         CornerRadius="15"
-                        BackgroundColor="#FAFAFA"
+                        BackgroundColor="WhiteSmoke"
                         BorderStroke="3">
-
                         <Label Text="没有课" 
                                HorizontalTextAlignment="Center"
-                                LineBreakMode="NoWrap" 
-                                TextColor="#CCCCCC"
-                                FontSize="20" />
-
+                               LineBreakMode="NoWrap" 
+                               TextColor="#CCCCCC"
+                               FontSize="20" />
                     </controls:BetterFrame>
                 </Grid>
-
             </DataTemplate>
+
+            <DataTemplate x:Key="groupTemplate">
+                <Grid Padding="30,10,30,5">
+                    <Label Text="{Binding GroupName}"></Label>
+                </Grid>
+            </DataTemplate>
+            
             <models:ListItemTemplateSelector x:Key="listItemTemplateSelector"
                 CourseTemplate="{StaticResource courseTemplate}"
                 GroupTemplate="{StaticResource groupTemplate}"
@@ -66,10 +68,9 @@
 
 
 
-    <StackLayout>
-        <Label Text="Welcome to Xamarin.Forms!"
-                   HorizontalTextAlignment="Center"
-                   />
-    </StackLayout>
+    <CollectionView x:Name="ItemsCollectionView"
+                ItemsSource="{Binding Items}"
+                ItemTemplate="{StaticResource listItemTemplateSelector}">
+    </CollectionView>
 
 </ContentPage>
