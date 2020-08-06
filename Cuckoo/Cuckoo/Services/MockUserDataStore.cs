@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Cuckoo.Services
 {
-    public class MockCourseDataStore : ICourseDataStore
+    public class MockUserDataStore : IUserDataStore
     {
         private List<IListItem> Items;
 
-        public MockCourseDataStore()
+        public MockUserDataStore()
         {
             Items = new List<IListItem>()
                 {
@@ -26,17 +26,21 @@ namespace Cuckoo.Services
                 };
         }
 
-        public async Task<IEnumerable<IListItem>> GetItemsAsync(string semester, int week, int dayOfWeek)
+        public async Task<IEnumerable<IListItem>> GetCoursesAsync(string semester, int week, int dayOfWeek)
         {
             // 模拟网络延迟
             await Task.Delay(2000);
             return await Task.FromResult(Items);
         }
 
-        public async Task<IEnumerable<IListItem>> GetItemsCacheAsync(string semester, int week, int dayOfWeek)
+        public async Task<IEnumerable<IListItem>> GetCoursesFromCacheAsync(string semester, int week, int dayOfWeek)
         {
             return await Task.FromResult(Items);
         }
 
+        public string GetSchoolId()
+        {
+            return "631805010409";
+        }
     }
 }

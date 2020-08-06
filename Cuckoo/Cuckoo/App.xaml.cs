@@ -12,7 +12,7 @@ namespace Cuckoo
         {
             InitializeComponent();
             // TODO: Replace with QzApi or my api
-            DependencyService.Register<MockCourseDataStore>();
+            DependencyService.Register<MockUserDataStore>();
             MainPage = new NavigationPage(new MainPage());
         }
 

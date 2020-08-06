@@ -12,7 +12,7 @@ namespace Cuckoo.ViewModels
 {
     public class CourseItemViewModel : BaseViewModel
     {
-        public ICourseDataStore DataStore => DependencyService.Get<ICourseDataStore>();
+        public IUserDataStore DataStore => DependencyService.Get<IUserDataStore>();
 
         public ObservableCollection<IListItem> Items { get; set; }
 
@@ -51,13 +51,13 @@ namespace Cuckoo.ViewModels
                 if(Items.Count == 0)
                 {
                     // 第一次获取先从本地文件缓存获取
-                    items = await DataStore.GetItemsCacheAsync("2019-2020-2", 12, DayOfWeek);
+                    items = await DataStore.GetCoursesFromCacheAsync("2019-2020-2", 12, DayOfWeek);
                 }
                 else
                 {
                     // 手动刷新，则从网络Api获取
                     Items.Clear();
-                    items = await DataStore.GetItemsAsync("2019-2020-2", 12, DayOfWeek);
+                    items = await DataStore.GetCoursesAsync("2019-2020-2", 12, DayOfWeek);
                 }
 
                 foreach (var item in items)

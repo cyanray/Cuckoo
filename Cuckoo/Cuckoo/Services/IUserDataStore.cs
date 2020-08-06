@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace Cuckoo.Services
 {
-    public interface ICourseDataStore
+    public interface IUserDataStore
     {
+        /// <summary>
+        /// 获取学号
+        /// </summary>
+        /// <returns>学号</returns>
+        string GetSchoolId();
         /// <summary>
         /// 获取某日的课表
         /// </summary>
@@ -15,7 +20,7 @@ namespace Cuckoo.Services
         /// <param name="week">周次，即第几周</param>
         /// <param name="dayOfWeek">该周的第几天</param>
         /// <returns></returns>
-        Task<IEnumerable<IListItem>> GetItemsAsync(string semester, int week, int dayOfWeek);
+        Task<IEnumerable<IListItem>> GetCoursesAsync(string semester, int week, int dayOfWeek);
 
         /// <summary>
         /// 获取某日的课表(从文件缓存)
@@ -24,6 +29,6 @@ namespace Cuckoo.Services
         /// <param name="week">周次，即第几周</param>
         /// <param name="dayOfWeek">该周的第几天</param>
         /// <returns></returns>
-        Task<IEnumerable<IListItem>> GetItemsCacheAsync(string semester, int week, int dayOfWeek);
+        Task<IEnumerable<IListItem>> GetCoursesFromCacheAsync(string semester, int week, int dayOfWeek);
     }
 }
