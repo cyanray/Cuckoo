@@ -8,9 +8,11 @@ namespace Cuckoo.Services
 {
     public class MockCourseDataStore : ICourseDataStore
     {
-        public async Task<IEnumerable<IListItem>> GetItemsAsync(bool forceRefresh = false)
+        private List<IListItem> Items;
+
+        public MockCourseDataStore()
         {
-            var items = new List<IListItem>()
+            Items = new List<IListItem>()
                 {
                     new GroupItem() { GroupName = "上午" },
                     new CourseItem(){ CourseName = "船舶静力学",Classroom="A01-123" },
@@ -22,7 +24,19 @@ namespace Cuckoo.Services
                     new EmptyItem(),
                     new EmptyItem()
                 };
-            return await Task.FromResult(items);
         }
+
+        public async Task<IEnumerable<IListItem>> GetItemsAsync(string semester, int week, int dayOfWeek)
+        {
+            // 模拟网络延迟
+            await Task.Delay(2000);
+            return await Task.FromResult(Items);
+        }
+
+        public async Task<IEnumerable<IListItem>> GetItemsCacheAsync(string semester, int week, int dayOfWeek)
+        {
+            return await Task.FromResult(Items);
+        }
+
     }
 }
