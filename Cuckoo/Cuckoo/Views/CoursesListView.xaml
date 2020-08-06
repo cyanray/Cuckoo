@@ -67,10 +67,11 @@
     </ContentPage.Resources>
 
 
-
-    <CollectionView x:Name="ItemsCollectionView"
+    <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadItemsCommand}">
+        <CollectionView x:Name="ItemsCollectionView"
                 ItemsSource="{Binding Items}"
                 ItemTemplate="{StaticResource listItemTemplateSelector}">
-    </CollectionView>
+        </CollectionView>
+    </RefreshView>
 
 </ContentPage>

@@ -17,6 +17,7 @@ namespace Cuckoo.Views
     {
         private CourseItemViewModel viewModel;
 
+
         public CoursesListView()
         {
             InitializeComponent();
@@ -28,5 +29,14 @@ namespace Cuckoo.Views
             InitializeComponent();
             BindingContext = viewModel = new CourseItemViewModel(index);
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (viewModel.Items.Count == 0)
+                viewModel.IsBusy = true;
+        }
+
     }
 }
