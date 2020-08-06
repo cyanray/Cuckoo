@@ -13,10 +13,33 @@
         <ToolbarItem Text="取消" Clicked="Cancel_Clicked" />
     </ContentPage.ToolbarItems>
 
-    <StackLayout>
-        <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+    <StackLayout Margin="30,30,30,30">
+        
+        <Label Text="选择学期:"></Label>
+        <Picker x:Name="semesterPicker">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>2018-2019-1</x:String>
+                    <x:String>2018-2019-2</x:String>
+                    <x:String>2019-2020-1</x:String>
+                    <x:String>2019-2020-2</x:String>
+                    <x:String>2020-2021-1</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        
+        <Label Text="选择周次:"></Label>
+        <Picker x:Name="weekPicker">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:Int32}">
+                    <x:Int32>1</x:Int32>
+                    <x:Int32>2</x:Int32>
+                    <x:Int32>3</x:Int32>
+                    <x:Int32>4</x:Int32>
+                    <x:Int32>5</x:Int32>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
     </StackLayout>
     
 </ContentPage>
