@@ -12,7 +12,7 @@ namespace Cuckoo.Services
         /// 获取学号
         /// </summary>
         /// <returns>学号</returns>
-        string GetSchoolId();
+        Task<string> GetSchoolIdAsync();
         /// <summary>
         /// 获取某日的课表
         /// </summary>

@@ -1,4 +1,5 @@
 ﻿using Cuckoo.Models;
+using Cuckoo.Utils;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -38,8 +39,15 @@ namespace Cuckoo.Services
             return await Task.FromResult(Items);
         }
 
-        public string GetSchoolId()
+        public async Task<string> GetSchoolIdAsync()
         {
+            var userData = await Database.UserDatabase.GetUserDataAsync();
+            if (userData != null)
+            {
+                return userData.SchoolId;
+            }
+            UserData tmp = new UserData() { SchoolId = "631805010000" };
+            _ = Database.UserDatabase.SaveUserDataAsync(tmp);
             return "631805010409";
         }
     }
