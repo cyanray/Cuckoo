@@ -17,9 +17,9 @@ namespace Cuckoo.Views
             InitializeComponent();
         }
 
-        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        public async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushModalAsync(new NavigationPage(new SemesterSelectionPage()));
         }
     }
 }

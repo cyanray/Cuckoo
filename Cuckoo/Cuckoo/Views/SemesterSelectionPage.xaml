@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Cuckoo.Views.SemesterSelectionPage"
+             Title="选择学期和周次">
+    
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="确定" Clicked="Save_Clicked" />
+        <ToolbarItem Text="取消" Clicked="Cancel_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+    </StackLayout>
+    
+</ContentPage>
