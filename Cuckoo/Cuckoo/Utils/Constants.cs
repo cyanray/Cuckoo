@@ -26,5 +26,7 @@ namespace Cuckoo.Utils
                 return Path.Combine(basePath, DatabaseFilename);
             }
         }
+
+        public const string LoginBannerPngFileName = "login_banner.png";
     }
 }

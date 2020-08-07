@@ -1,4 +1,5 @@
-﻿using QzSdk.Models;
+﻿using Cuckoo.Utils;
+using QzSdk.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,7 +23,7 @@ namespace Cuckoo.ViewModels
             set { SetProperty(ref isBusy, value); }
         }
 
-        ImageSource schoolLogoImageUrl = ImageSource.FromFile("login_banner.png");
+        ImageSource schoolLogoImageUrl = ImageSource.FromFile(Constants.LoginBannerPngFileName);
         public ImageSource SchoolLogoImageUrl
         {
             get { return schoolLogoImageUrl; }
