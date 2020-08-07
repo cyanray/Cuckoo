@@ -38,14 +38,14 @@ namespace Cuckoo.Views
             }
         }
 
-        private void SchoolPicker_SelectedIndexChanged(object sender, EventArgs e)
+        private async void SchoolPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
             var picker = (Picker)sender;
             var selectedItem = (School)picker.SelectedItem;
 
             if (selectedItem != null)
             {
-                viewModel.SchoolLogoImageUrl = LoginViewModel.GetStreamFromUrl(selectedItem.LogoUrl);
+                viewModel.SchoolLogoImageUrl = await Utils.Functions.GetImageSourceFromUrlAsync(selectedItem.LogoUrl);
             }
         }
     }
