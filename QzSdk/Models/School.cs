@@ -13,7 +13,7 @@ namespace QzSdk.Models
         public string Name { get; set; }
 
         [JsonProperty("photo")]
-        public string PhotoUrl { get; set; }
+        public string LogoUrl { get; set; }
 
         [JsonProperty("areaId")]
         public string AreaId { get; set; }
