@@ -23,11 +23,11 @@ namespace Cuckoo.ViewModels
             set { SetProperty(ref isBusy, value); }
         }
 
-        ImageSource schoolLogoImageUrl = ImageSource.FromFile(Constants.LoginBannerPngFileName);
+        ImageSource schoolLogoImage = ImageSource.FromFile(Constants.LoginBannerPngFileName);
         public ImageSource SchoolLogoImageUrl
         {
-            get { return schoolLogoImageUrl; }
-            set { SetProperty(ref schoolLogoImageUrl, value); }
+            get { return schoolLogoImage; }
+            set { SetProperty(ref schoolLogoImage, value); }
         }
 
         public LoginViewModel()
