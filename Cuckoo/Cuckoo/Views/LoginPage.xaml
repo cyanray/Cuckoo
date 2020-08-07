@@ -1,8 +1,33 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Cuckoo.Views.LoginPage">
-    <ContentView.Content>
-        
-    </ContentView.Content>
-</ContentView>
+             x:Class="Cuckoo.Views.LoginPage"
+             Title="请先登录">
+    <Grid>
+        <StackLayout 
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+            Orientation="Horizontal"
+            IsVisible="{Binding IsBusy}">
+            <ActivityIndicator 
+            IsRunning="{Binding IsBusy}" />
+            <Label Text="加载中..."></Label>
+        </StackLayout>
+
+        <StackLayout Margin="30,0,30,0">
+            <Label Text="选择省份:"></Label>
+            <Picker 
+                Title="省份" 
+                ItemsSource="{Binding ProvinceItems}" 
+                ItemDisplayBinding="{Binding Name}"
+                SelectedIndexChanged="ProvincePicker_SelectedIndexChanged">
+            </Picker>
+            <Label Text="选择大学:"></Label>
+            <Picker 
+                Title="大学" 
+                ItemsSource="{Binding SchoolItems}" 
+                ItemDisplayBinding="{Binding Name}">
+            </Picker>
+        </StackLayout>
+    </Grid>
+</ContentPage>
