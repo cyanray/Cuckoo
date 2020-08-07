@@ -8,12 +8,20 @@ namespace QzSdk.Models
     public class School
     {
         private string apiUrl;
+        private string logoUrl;
 
         [JsonProperty("name")]
         public string Name { get; set; }
 
         [JsonProperty("photo")]
-        public string LogoUrl { get; set; }
+        public string LogoUrl 
+        {
+            get => logoUrl;
+            set
+            {
+                logoUrl = $"{Qz.LogoUrlHost}{value}";
+            }
+        }
 
         [JsonProperty("areaId")]
         public string AreaId { get; set; }

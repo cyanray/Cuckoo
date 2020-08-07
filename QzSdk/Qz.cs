@@ -12,6 +12,7 @@ namespace QzSdk
 {
     public class Qz
     {
+        public static readonly string LogoUrlHost = "http://app.qzdatasoft.com:9876";
         static List<Province> Provinces { get; set; } = null;
         static List<School> Schools { get; set; } = null;
 
