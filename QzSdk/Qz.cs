@@ -4,6 +4,7 @@ using QzSdk.Models;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,21 +15,19 @@ namespace QzSdk
         static List<Province> Provinces { get; set; } = null;
         static List<School> Schools { get; set; } = null;
 
-        public static async Task<List<Province>> GetProvincesAsync()
+        public static List<Province> GetProvinces()
         {
-            if(Provinces == null)
-            {
-                await FetchProvincesAndSchoolsAsync();
-            }
+            if (Provinces != null) return Provinces;
+            var task = FetchProvincesAndSchoolsAsync();
+            task.Wait();
             return Provinces;
         }
 
-        public static async Task<List<School>> GetSchoolsAsync()
+        public static List<School> GetSchools()
         {
-            if (Schools == null)
-            {
-                await FetchProvincesAndSchoolsAsync();
-            }
+            if (Schools != null) return Schools;
+            var task = FetchProvincesAndSchoolsAsync();
+            task.Wait();
             return Schools;
         }
 
@@ -43,7 +42,15 @@ namespace QzSdk
 
             var json = JObject.Parse(response.Content);
             var provinceArray = json["prov"].Value<JArray>();
-            Provinces = provinceArray.ToObject<List<Province>>();
+            try
+            {
+                Provinces = provinceArray.ToObject<List<Province>>();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+
 
             var schoolArray = json["school"].Value<JArray>();
             Schools = schoolArray.ToObject<List<School>>();
