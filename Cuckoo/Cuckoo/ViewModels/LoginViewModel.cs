@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace Cuckoo.ViewModels
 {
@@ -18,6 +20,13 @@ namespace Cuckoo.ViewModels
         {
             get { return isBusy; }
             set { SetProperty(ref isBusy, value); }
+        }
+
+        ImageSource schoolLogoImageUrl = ImageSource.FromFile("login_banner.png");
+        public ImageSource SchoolLogoImageUrl
+        {
+            get { return schoolLogoImageUrl; }
+            set { SetProperty(ref schoolLogoImageUrl, value); }
         }
 
         public LoginViewModel()
@@ -40,5 +49,29 @@ namespace Cuckoo.ViewModels
 
 
         }
+
+        public static ImageSource GetStreamFromUrl(string url)
+        {
+            byte[] imageData = null;
+            MemoryStream ms;
+
+            ms = null;
+
+            try
+            {
+                using (var wc = new System.Net.WebClient())
+                {
+                    imageData = wc.DownloadData(url);
+                }
+                ms = new MemoryStream(imageData);
+            }
+            catch (Exception ex)
+            {
+                //forbidden, proxy issues, file not found (404) etc
+            }
+
+            return ImageSource.FromStream(() => ms);
+        }
+
     }
 }

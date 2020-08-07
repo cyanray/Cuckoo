@@ -37,5 +37,16 @@ namespace Cuckoo.Views
                 }
             }
         }
+
+        private void SchoolPicker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var picker = (Picker)sender;
+            var selectedItem = (School)picker.SelectedItem;
+
+            if (selectedItem != null)
+            {
+                viewModel.SchoolLogoImageUrl = LoginViewModel.GetStreamFromUrl(selectedItem.LogoUrl);
+            }
+        }
     }
 }
