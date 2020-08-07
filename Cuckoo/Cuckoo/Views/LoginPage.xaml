@@ -1,21 +1,32 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Cuckoo.Controls"
              xmlns:effects="clr-namespace:Cuckoo.Effects"
              x:Class="Cuckoo.Views.LoginPage"
              Title="请先登录">
-    <Grid>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <controls:InverseBoolConverter x:Key="InverseBool" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <AbsoluteLayout VerticalOptions="Fill">
         <StackLayout 
-            HorizontalOptions="CenterAndExpand"
-            VerticalOptions="CenterAndExpand"
-            Orientation="Horizontal"
+            AbsoluteLayout.LayoutFlags="PositionProportional" 
+            AbsoluteLayout.LayoutBounds=".5,.5,-1,-1"
             IsVisible="{Binding IsBusy}">
             <ActivityIndicator 
             IsRunning="{Binding IsBusy}" />
-            <Label Text="加载中..."></Label>
+            <Label Text="加载学校数据中..."></Label>
         </StackLayout>
 
-        <StackLayout Margin="30,0,30,0">
+        <StackLayout 
+            IsVisible="{Binding IsBusy, Converter={StaticResource InverseBool}}"
+            AbsoluteLayout.LayoutFlags="All" 
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            Margin="30,0,30,0">
             <Image 
                 HeightRequest="300"
                 Source="{Binding SchoolLogoImageUrl}">
@@ -46,5 +57,5 @@
             <Button WidthRequest="300" Text="登录"></Button>
 
         </StackLayout>
-    </Grid>
+    </AbsoluteLayout>
 </ContentPage>

@@ -40,7 +40,8 @@ namespace Cuckoo.ViewModels
         private async Task LoadProvinceItemsAsync()
         {
             IsBusy = true;
-
+            // 模拟网络不好的情况
+            // await Task.Delay(3000);
             var provinces = await Task.Run(() => { return QzSdk.Qz.GetProvinces(); });
             foreach (var item in provinces)
             {
