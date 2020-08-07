@@ -5,13 +5,13 @@ using Xamarin.Forms;
 
 namespace Cuckoo.Effects
 {
-    public class TintImage : RoutingEffect
+    public class TintImageEffect : RoutingEffect
     {
-        public Color TintColor { get; private set; }
-        public TintImage(Color color) : base($"MyCompany.{nameof(TintImage)}")
-        {
-            TintColor = color;
-        }
+        public const string GroupName = "Uint128";
+        public const string Name = "TintImageEffect";
 
+        public Color TintColor { get; set; }
+
+        public TintImageEffect() : base($"{GroupName}.{Name}") { }
     }
 }

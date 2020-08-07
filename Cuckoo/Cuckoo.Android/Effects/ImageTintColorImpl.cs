@@ -15,16 +15,17 @@ using Cuckoo.Effects;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportEffect(typeof(TintImageImpl), nameof(TintImage))]
+[assembly: ResolutionGroupName(TintImageEffect.GroupName)]
+[assembly: ExportEffect(typeof(TintImageEffectImpl), TintImageEffect.Name)]
 namespace Cuckoo.Droid.Effects
 {
-    public class TintImageImpl : PlatformEffect
+    public class TintImageEffectImpl : PlatformEffect
     {
         protected override void OnAttached()
         {
             try
             {
-                var effect = (TintImage)Element.Effects.FirstOrDefault(e => e is TintImage);
+                var effect = (TintImageEffect)Element.Effects.FirstOrDefault(e => e is TintImageEffect);
 
                 if (effect == null || !(Control is ImageView image))
                     return;
@@ -32,9 +33,10 @@ namespace Cuckoo.Droid.Effects
                 var filter = new PorterDuffColorFilter(effect.TintColor.ToAndroid(), PorterDuff.Mode.SrcIn);
                 image.SetColorFilter(filter);
             }
-            catch
+            catch (Exception ex)
             {
-
+                System.Diagnostics.Debug.WriteLine(
+                    $"An error occurred when setting the {typeof(TintImageEffect)} effect: {ex.Message}\n{ex.StackTrace}");
             }
         }
 
