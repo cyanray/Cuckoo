@@ -26,12 +26,17 @@ namespace Cuckoo.Views
 
             var userData = await Database.UserDatabase.GetUserDataAsync();
             if (userData == null)
+            {
+                var stack = Navigation.ModalStack;
+                if (stack.Count > 0 && ((NavigationPage)stack[stack.Count - 1]).RootPage is LoginPage) return;
                 await Navigation.PushModalAsync(new NavigationPage(new LoginPage()));
+            }
+
         }
 
         async void OnClassScheduleTapped(object sender, EventArgs args)
         {
-            await Navigation.PushModalAsync( new NavigationPage( new ClassSchedulePage() ));
+            await Navigation.PushModalAsync(new NavigationPage(new ClassSchedulePage()));
         }
 
     }
