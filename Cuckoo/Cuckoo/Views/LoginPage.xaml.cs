@@ -1,4 +1,5 @@
-﻿using Cuckoo.ViewModels;
+﻿using Cuckoo.Controls;
+using Cuckoo.ViewModels;
 using QzSdk.Models;
 using System;
 using System.Collections.Generic;
@@ -48,5 +49,13 @@ namespace Cuckoo.Views
                 viewModel.SchoolLogoImageUrl = await Utils.Functions.GetImageSourceFromUrlAsync(selectedItem.LogoUrl);
             }
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            DependencyService.Get<IToast>().ShortAlert("你必须登录...");
+            return true;
+            // return base.OnBackButtonPressed();
+        }
+
     }
 }
