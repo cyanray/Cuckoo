@@ -63,21 +63,31 @@ namespace Cuckoo.Views
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
+            if(SchoolPicker.SelectedIndex == -1)
+            {
+                await DisplayAlert("提示", "请先选择学校", "确定");
+                return;
+            }
             if (apiHost == null)
             {
                 await DisplayAlert("提示", "所选的学校暂不支持", "确定");
+                return;
+            }
+            if(string.IsNullOrEmpty(this.SchoolIdEntry.Text) || string.IsNullOrEmpty(this.PasswordEntry.Text))
+            {
+                await DisplayAlert("提示", "请填写学号和密码", "确定");
                 return;
             }
             var qz = new Qz(apiHost);
             try
             {
                 await qz.Login(this.SchoolIdEntry.Text, this.PasswordEntry.Text);
+                DependencyService.Get<IToast>().LongAlert("登录成功");
             }
             catch (Exception ex)
             {
                 await DisplayAlert("出现错误", ex.Message, "确定");
             }
-
         }
     }
 }

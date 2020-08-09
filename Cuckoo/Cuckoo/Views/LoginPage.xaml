@@ -36,6 +36,7 @@
             </Image>
             <Label Text="选择省份:"></Label>
             <Picker 
+                x:Name="ProvincePicker"
                 Title="省份" 
                 ItemsSource="{Binding ProvinceItems}" 
                 ItemDisplayBinding="{Binding Name}"
@@ -43,6 +44,7 @@
             </Picker>
             <Label Text="选择大学:"></Label>
             <Picker 
+                x:Name="SchoolPicker"
                 Title="大学" 
                 ItemsSource="{Binding SchoolItems}" 
                 ItemDisplayBinding="{Binding Name}"
