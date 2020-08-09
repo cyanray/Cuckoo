@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace QzSdk.Models
 {
@@ -14,7 +15,7 @@ namespace QzSdk.Models
         public string Name { get; set; }
 
         [JsonProperty("photo")]
-        public string LogoUrl 
+        public string LogoUrl
         {
             get => logoUrl;
             set
@@ -33,10 +34,11 @@ namespace QzSdk.Models
             set
             {
                 apiUrl = value;
-                // TODO: Match ApiHost
-                // ApiHost = ...
+                var m = Regex.Match(value, "https?://(.+)/");
+                if (m.Success && m.Groups.Count > 1)
+                    ApiHost = m.Groups[1].Value;
             }
         }
-        public string ApiHost { get; } = null;
+        public string ApiHost { get; private set; } = null;
     }
 }
