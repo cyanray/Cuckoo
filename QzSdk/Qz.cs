@@ -13,13 +13,17 @@ namespace QzSdk
     public class Qz
     {
         public static readonly string LogoUrlHost = "http://app.qzdatasoft.com:9876";
-        private string apiHost;
+        private string ApiHost;
+        private RestClient ApiClient;
         static List<Province> Provinces { get; set; } = null;
         static List<School> Schools { get; set; } = null;
 
+        public string Token { get; set; } = null;
+
         public Qz(string api_host)
         {
-            apiHost = api_host;
+            ApiHost = api_host;
+            ApiClient = new RestClient(api_host);
         }
 
         public static List<Province> GetProvinces()
@@ -61,6 +65,19 @@ namespace QzSdk
 
             var schoolArray = json["school"].Value<JArray>();
             Schools = schoolArray.ToObject<List<School>>();
+        }
+
+        public async Task Login(string schoolId, string password)
+        {
+            var request = new RestRequest($"app.do?method=authUser&xh={schoolId}&pwd={password}");
+            var response = await ApiClient.ExecuteGetAsync(request);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                throw new Exception("非200状态响应");
+            var json = JObject.Parse(response.Content);
+            string token = json["token"].Value<string>();
+            string err_msg = json["msg"].Value<string>();
+            if (token == "-1") throw new Exception($"登录错误,{err_msg}");
+            this.Token = token;
         }
     }
 }
