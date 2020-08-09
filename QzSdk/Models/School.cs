@@ -34,9 +34,9 @@ namespace QzSdk.Models
             set
             {
                 apiUrl = value;
-                var m = Regex.Match(value, "https?://(.+)/");
-                if (m.Success && m.Groups.Count > 1)
-                    ApiHost = m.Groups[1].Value;
+                var m = Regex.Match(value, "(https?)://(.+)/");
+                if (m.Success && m.Groups.Count > 2)
+                    ApiHost = $"{m.Groups[1].Value}://{m.Groups[2].Value}";
             }
         }
         public string ApiHost { get; private set; } = null;
