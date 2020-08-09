@@ -1,5 +1,6 @@
 ﻿using Cuckoo.Controls;
 using Cuckoo.ViewModels;
+using QzSdk;
 using QzSdk.Models;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace Cuckoo.Views
     public partial class LoginPage : ContentPage
     {
         LoginViewModel viewModel;
+        string apiHost;
+
         public LoginPage()
         {
             InitializeComponent();
@@ -47,6 +50,7 @@ namespace Cuckoo.Views
             if (selectedItem != null)
             {
                 viewModel.SchoolLogoImageUrl = await Utils.Functions.GetImageSourceFromUrlAsync(selectedItem.LogoUrl);
+                apiHost = selectedItem.ApiHost;
             }
         }
 
@@ -57,5 +61,23 @@ namespace Cuckoo.Views
             // return base.OnBackButtonPressed();
         }
 
+        private async void LoginButton_Clicked(object sender, EventArgs e)
+        {
+            if (apiHost == null)
+            {
+                await DisplayAlert("提示", "所选的学校暂不支持", "确定");
+                return;
+            }
+            var qz = new Qz(apiHost);
+            try
+            {
+                await qz.Login(this.SchoolIdEntry.Text, this.PasswordEntry.Text);
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("出现错误", ex.Message, "确定");
+            }
+
+        }
     }
 }

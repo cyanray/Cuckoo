@@ -51,10 +51,10 @@
 
 
             <Label Text="学号:"></Label>
-            <Entry Placeholder="学号"></Entry>
+            <Entry x:Name="SchoolIdEntry"></Entry>
             <Label Text="密码:"></Label>
-            <Entry Placeholder="密码"></Entry>
-            <Button WidthRequest="300" Text="登录"></Button>
+            <Entry x:Name="PasswordEntry" IsPassword="True"></Entry>
+            <Button WidthRequest="300" Text="登录" Clicked="LoginButton_Clicked"></Button>
 
         </StackLayout>
     </AbsoluteLayout>
