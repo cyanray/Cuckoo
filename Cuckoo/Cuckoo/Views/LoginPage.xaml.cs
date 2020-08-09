@@ -1,4 +1,6 @@
 ﻿using Cuckoo.Controls;
+using Cuckoo.Models;
+using Cuckoo.Utils;
 using Cuckoo.ViewModels;
 using QzSdk;
 using QzSdk.Models;
@@ -63,7 +65,7 @@ namespace Cuckoo.Views
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
-            if(SchoolPicker.SelectedIndex == -1)
+            if (SchoolPicker.SelectedIndex == -1)
             {
                 await DisplayAlert("提示", "请先选择学校", "确定");
                 return;
@@ -73,16 +75,28 @@ namespace Cuckoo.Views
                 await DisplayAlert("提示", "所选的学校暂不支持", "确定");
                 return;
             }
-            if(string.IsNullOrEmpty(this.SchoolIdEntry.Text) || string.IsNullOrEmpty(this.PasswordEntry.Text))
+            if (string.IsNullOrEmpty(this.SchoolIdEntry.Text) || string.IsNullOrEmpty(this.PasswordEntry.Text))
             {
                 await DisplayAlert("提示", "请填写学号和密码", "确定");
                 return;
             }
-            var qz = new Qz(apiHost);
+            if (Api.Jw == null)
+                Api.Jw = new Qz(apiHost);
             try
             {
-                await qz.Login(this.SchoolIdEntry.Text, this.PasswordEntry.Text);
+                await Api.Jw.Login(this.SchoolIdEntry.Text, this.PasswordEntry.Text);
+                var studentInfo = await Api.Jw.GetStudentInfoAsync();
+                UserData userData = new UserData()
+                {
+                    SchoolId = SchoolIdEntry.Text,
+                    Password = PasswordEntry.Text,
+                    RemoteApiHost = apiHost,
+                    SchoolName = ((School)SchoolPicker.SelectedItem).Name,
+                    StudentName = studentInfo.StudentName
+                };
+                await Database.UserDatabase.SaveUserDataAsync(userData);
                 DependencyService.Get<IToast>().LongAlert("登录成功");
+                await Navigation.PopModalAsync();
             }
             catch (Exception ex)
             {
