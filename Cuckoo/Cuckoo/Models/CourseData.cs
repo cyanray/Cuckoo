@@ -15,8 +15,8 @@ namespace Cuckoo.Models
         [AutoIncrement]
         public int Id { get; set; }
         public string Semester { get; set; }
-        public string Week { get; set; }
-        public string DayOfWeek { get; set; }
+        public int Week { get; set; }
+        public int DayOfWeek { get; set; }
         public int Period { get; set; }
         public CourseItem Course { get; set; }
     }
