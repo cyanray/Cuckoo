@@ -43,5 +43,10 @@ namespace Cuckoo.Views
             await Navigation.PushModalAsync(new NavigationPage(new ClassSchedulePage()));
         }
 
+        private async void Logout_ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            await Database.UserDatabase.DeleteUserDataAsync();
+            await Navigation.PushModalAsync(new NavigationPage(new LoginPage()));
+        }
     }
 }

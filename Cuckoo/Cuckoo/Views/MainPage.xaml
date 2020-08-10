@@ -11,7 +11,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="Welcome" Order="Primary"></ToolbarItem>
-        <ToolbarItem Text="退出登录" Order="Secondary"></ToolbarItem>
+        <ToolbarItem Text="退出登录" Order="Secondary" Clicked="Logout_ToolbarItem_Clicked"></ToolbarItem>
     </ContentPage.ToolbarItems>
 
     <StackLayout Margin="10,20,20,10">
