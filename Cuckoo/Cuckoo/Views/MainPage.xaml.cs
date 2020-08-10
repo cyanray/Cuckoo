@@ -31,6 +31,10 @@ namespace Cuckoo.Views
                 if (stack.Count > 0 && ((NavigationPage)stack[stack.Count - 1]).RootPage is LoginPage) return;
                 await Navigation.PushModalAsync(new NavigationPage(new LoginPage()));
             }
+            else
+            {
+                this.Welcome.Text = $"早上好, {userData.StudentName}";
+            }
 
         }
 

@@ -8,6 +8,11 @@
              Title="Cuckoo"
              BackgroundColor="#FAFAFA">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Welcome" Order="Primary"></ToolbarItem>
+        <ToolbarItem Text="退出登录" Order="Secondary"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
     <StackLayout Margin="10,20,20,10">
         <!--<Image  Source="logo_1.png"></Image>-->
         <Grid Padding="30,5,30,0">
