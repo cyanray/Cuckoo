@@ -9,11 +9,6 @@ namespace Cuckoo.Services
     public interface IUserDataStore
     {
         /// <summary>
-        /// 获取学号
-        /// </summary>
-        /// <returns>学号</returns>
-        Task<string> GetSchoolIdAsync();
-        /// <summary>
         /// 获取某日的课表
         /// </summary>
         /// <param name="semester">学期，格式如：2019-2020-1</param>
