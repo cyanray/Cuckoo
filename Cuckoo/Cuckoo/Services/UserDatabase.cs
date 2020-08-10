@@ -41,16 +41,15 @@ namespace Cuckoo.Services
             return Database.Table<UserData>().FirstOrDefaultAsync();
         }
 
+        public async Task<int> DeleteUserDataAsync()
+        {
+            var userData = await GetUserDataAsync();
+            return await Database.Table<UserData>().DeleteAsync(item => item.Id == userData.Id);
+        }
+
         public Task<int> SaveUserDataAsync(UserData item)
         {
-            if (item.Id != 0)
-            {
-                return Database.UpdateAsync(item);
-            }
-            else
-            {
-                return Database.InsertAsync(item);
-            }
+            return Database.InsertOrReplaceAsync(item);
         }
 
     }
