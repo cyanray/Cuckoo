@@ -1,5 +1,6 @@
 ﻿using Cuckoo.Models;
 using Cuckoo.Utils;
+using Cuckoo.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,9 +18,10 @@ namespace Cuckoo.Services
         public async Task<List<IListItem>> GetCoursesFromCacheAsync(string semester, int week, int dayOfWeek)
         {
             var courseData = await Database.CourseDatabase.GetCourseAsync(semester, week, dayOfWeek);
-            if (courseData == null || courseData.Count == 0) return null;
+            if (courseData == null || courseData.Count == 0) 
+                return await GetCoursesAsync(semester, week, dayOfWeek);
             var listItems = new List<IListItem>();
-            foreach(var course in courseData)
+            foreach (var course in courseData)
             {
                 listItems.Add(course.Course);
             }
