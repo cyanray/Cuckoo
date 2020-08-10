@@ -17,6 +17,7 @@ namespace Cuckoo.Services
         public async Task<List<IListItem>> GetCoursesFromCacheAsync(string semester, int week, int dayOfWeek)
         {
             var courseData = await Database.CourseDatabase.GetCourseAsync(semester, week, dayOfWeek);
+            if (courseData == null || courseData.Count == 0) return null;
             var listItems = new List<IListItem>();
             foreach(var course in courseData)
             {
