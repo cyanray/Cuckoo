@@ -36,21 +36,14 @@ namespace Cuckoo.Services
             }
         }
 
-        public Task<List<CourseData>> GetCourseDataAsync()
+        public Task<List<CourseData>> GetCourseAllAsync()
         {
             return Database.Table<CourseData>().ToListAsync();
         }
 
-        public Task<int> SaveCourseDataAsync(CourseData item)
+        public Task<int> SaveCourseAsync(CourseData item)
         {
-            if (item.Id != 0)
-            {
-                return Database.UpdateAsync(item);
-            }
-            else
-            {
-                return Database.InsertAsync(item);
-            }
+            return Database.InsertOrReplaceAsync(item);
         }
 
         // TODO: more course database methods
