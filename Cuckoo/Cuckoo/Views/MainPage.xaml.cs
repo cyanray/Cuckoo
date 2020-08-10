@@ -33,7 +33,7 @@ namespace Cuckoo.Views
             }
             else
             {
-                this.Welcome.Text = $"早上好, {userData.StudentName}";
+                this.Welcome.Text = $"{Functions.GreetText()}, {userData.StudentName}";
             }
 
         }
