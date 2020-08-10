@@ -20,7 +20,7 @@
                             <Label Text="{Binding CourseName}" 
                                 d:Text="{Binding .}"
                                 LineBreakMode="WordWrap" 
-                                TextColor="#757575"
+                                TextColor="#333333"
                                 FontSize="20" />
                             <Label Text="{Binding Classroom}" 
                                 d:Text="classroom"
