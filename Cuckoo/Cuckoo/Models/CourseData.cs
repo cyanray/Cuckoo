@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,6 +10,9 @@ namespace Cuckoo.Models
     /// </summary>
     public class CourseData
     {
+        [PrimaryKey]
+        [NotNull]
+        [AutoIncrement]
         public int Id { get; set; }
         public string Semester { get; set; }
         public string Week { get; set; }
