@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Cuckoo.Services
 {
-    public class MockUserDataStore : IUserDataStore
+    public class MockCourseDataStore : ICourseDataStore
     {
         private List<IListItem> Items;
 
-        public MockUserDataStore()
+        public MockCourseDataStore()
         {
             Items = new List<IListItem>()
                 {

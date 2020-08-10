@@ -12,7 +12,7 @@ namespace Cuckoo.ViewModels
 {
     public class CourseItemViewModel : BaseViewModel
     {
-        public IUserDataStore DataStore => DependencyService.Get<IUserDataStore>();
+        public ICourseDataStore DataStore => DependencyService.Get<ICourseDataStore>();
 
         public ObservableCollection<IListItem> Items { get; set; }
 

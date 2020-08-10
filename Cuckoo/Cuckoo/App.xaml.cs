@@ -12,7 +12,7 @@ namespace Cuckoo
         {
             InitializeComponent();
             // TODO: Replace with QzApi or my api
-            DependencyService.Register<MockUserDataStore>();
+            DependencyService.Register<MockCourseDataStore>();
             MainPage = new NavigationPage(new MainPage()) { BarTextColor = Color.Black };
         }
 

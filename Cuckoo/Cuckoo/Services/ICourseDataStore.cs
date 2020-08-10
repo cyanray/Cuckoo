@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cuckoo.Services
 {
-    public interface IUserDataStore
+    public interface ICourseDataStore
     {
         /// <summary>
         /// 获取某日的课表

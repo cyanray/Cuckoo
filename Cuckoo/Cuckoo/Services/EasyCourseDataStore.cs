@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cuckoo.Services
 {
-    public class EasyUserDataStore : IUserDataStore
+    public class EasyCourseDataStore : ICourseDataStore
     {
         public Task<IEnumerable<IListItem>> GetCoursesAsync(string semester, int week, int dayOfWeek)
         {
