@@ -46,7 +46,15 @@ namespace Cuckoo.Services
             return Database.InsertOrReplaceAsync(item);
         }
 
-        // TODO: more course database methods
+        public Task<List<CourseData>> GetCourseAsync(string semester, int week, int dayOfWeek)
+        {
+            return Database
+                .Table<CourseData>()
+                .Where(x=>x.Semester == semester)
+                .Where(x=>x.Week == week)
+                .Where(x=>x.DayOfWeek == dayOfWeek)
+                .ToListAsync();
+        }
 
     }
 }

@@ -15,7 +15,7 @@ namespace Cuckoo.Services
         /// <param name="week">周次，即第几周</param>
         /// <param name="dayOfWeek">该周的第几天</param>
         /// <returns></returns>
-        Task<IEnumerable<IListItem>> GetCoursesAsync(string semester, int week, int dayOfWeek);
+        Task<List<IListItem>> GetCoursesAsync(string semester, int week, int dayOfWeek);
 
         /// <summary>
         /// 获取某日的课表(从文件缓存)
@@ -24,6 +24,6 @@ namespace Cuckoo.Services
         /// <param name="week">周次，即第几周</param>
         /// <param name="dayOfWeek">该周的第几天</param>
         /// <returns></returns>
-        Task<IEnumerable<IListItem>> GetCoursesFromCacheAsync(string semester, int week, int dayOfWeek);
+        Task<List<IListItem>> GetCoursesFromCacheAsync(string semester, int week, int dayOfWeek);
     }
 }

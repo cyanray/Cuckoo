@@ -27,14 +27,14 @@ namespace Cuckoo.Services
                 };
         }
 
-        public async Task<IEnumerable<IListItem>> GetCoursesAsync(string semester, int week, int dayOfWeek)
+        public async Task<List<IListItem>> GetCoursesAsync(string semester, int week, int dayOfWeek)
         {
             // 模拟网络延迟
             await Task.Delay(2000);
             return await Task.FromResult(Items);
         }
 
-        public async Task<IEnumerable<IListItem>> GetCoursesFromCacheAsync(string semester, int week, int dayOfWeek)
+        public async Task<List<IListItem>> GetCoursesFromCacheAsync(string semester, int week, int dayOfWeek)
         {
             return await Task.FromResult(Items);
         }
