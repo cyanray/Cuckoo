@@ -18,6 +18,8 @@ namespace Cuckoo.Models
         public int Week { get; set; }
         public int DayOfWeek { get; set; }
         public int Period { get; set; }
-        public CourseItem Course { get; set; }
+        public string CourseName { get; set; }
+        public string Classroom { get; set; }
+        public string Teacher { get; set; }
     }
 }
