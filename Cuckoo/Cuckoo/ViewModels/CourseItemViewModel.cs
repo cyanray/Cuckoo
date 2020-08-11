@@ -47,17 +47,18 @@ namespace Cuckoo.ViewModels
             try
             {
                 IEnumerable<IListItem> items;
-                
-                if(Items.Count == 0)
+                var semester = SemesterTime.GetThisSemester();
+                var week = await SemesterTime.GetWeekAsync();
+                if (Items.Count == 0)
                 {
                     // 第一次获取先从本地文件缓存获取
-                    items = await DataStore.GetCoursesFromCacheAsync("2019-2020-2", 12, DayOfWeek);
+                    items = await DataStore.GetCoursesFromCacheAsync(semester, week, DayOfWeek);
                 }
                 else
                 {
                     // 手动刷新，则从网络Api获取
                     Items.Clear();
-                    items = await DataStore.GetCoursesAsync("2019-2020-2", 12, DayOfWeek);
+                    items = await DataStore.GetCoursesAsync(semester, week, DayOfWeek);
                 }
 
                 foreach (var item in items)
