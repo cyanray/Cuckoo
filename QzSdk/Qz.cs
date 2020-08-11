@@ -35,6 +35,18 @@ namespace QzSdk
             return Provinces;
         }
 
+        public async Task<int> GetWeekAsync()
+        {
+            if (Token == null) throw new Exception("未登录教务系统");
+            var request = new RestRequest($"app.do?method=getCurrentTime&currDate={DateTime.Now:yyyy-MM-dd}");
+            request.AddHeader("token", Token);
+            var response = await ApiClient.ExecuteGetAsync(request);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                throw new Exception("非200状态响应");
+            var json = JObject.Parse(response.Content);
+            return json["zc"].Value<int>();
+        }
+
         public static List<School> GetSchools()
         {
             if (Schools != null) return Schools;
