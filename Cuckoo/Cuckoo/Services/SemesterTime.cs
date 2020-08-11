@@ -8,7 +8,8 @@ namespace Cuckoo.Services
 {
     public class SemesterTime
     {
-        private static int week { get; set; } = 0;
+        public static string Semester { get; set; }
+        public static int Week { get; set; } = 0;
 
         public static List<string> GetSemesterAll(int yearOfGrade)
         {
@@ -25,6 +26,8 @@ namespace Cuckoo.Services
 
         public static string GetThisSemester()
         {
+            if (!string.IsNullOrEmpty(Semester))
+                return Semester;
             int year = DateTime.Now.Year;
             if (DateTime.Now.Month < 8)
             {
@@ -38,10 +41,9 @@ namespace Cuckoo.Services
 
         public async static Task<int> GetWeekAsync()
         {
-            if (week == 0)
-                return await Api.Jw.GetWeekAsync();
-            else
-                return week;
+            if (Week == 0)
+                Week = await Api.Jw.GetWeekAsync();
+            return Week;
         }
 
     }
