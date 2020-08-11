@@ -14,156 +14,157 @@
         <ToolbarItem Text="退出登录" Order="Secondary" Clicked="Logout_ToolbarItem_Clicked"></ToolbarItem>
     </ContentPage.ToolbarItems>
 
-    <StackLayout Margin="10,20,20,10">
-        <!--<Image  Source="logo_1.png"></Image>-->
-        <Grid Padding="30,5,30,0">
-            <Frame 
+    <ScrollView>
+        <StackLayout Margin="10,20,20,10">
+            <!--<Image  Source="logo_1.png"></Image>-->
+            <Grid Padding="30,5,30,0">
+                <Frame 
                 WidthRequest="200"
                 VerticalOptions="CenterAndExpand"
                 CornerRadius="10"
                 Padding="0"
                 BackgroundColor="White">
-                <StackLayout Orientation="Horizontal" Padding="10">
-                    <Image WidthRequest="30" Source="ic_format_list_bulleted_black_48dp">
-                        <Image.Effects>
-                            <effects:TintImageEffect TintColor="Black" />
-                        </Image.Effects>
-                    </Image>
-                    <StackLayout Padding="10">
-                        <Label Text="课表" 
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <Image WidthRequest="30" Source="ic_format_list_bulleted_black_48dp">
+                            <Image.Effects>
+                                <effects:TintImageEffect TintColor="Black" />
+                            </Image.Effects>
+                        </Image>
+                        <StackLayout Padding="10">
+                            <Label Text="课表" 
                            LineBreakMode="WordWrap" 
                            TextColor="Black"
                            FontSize="Large" />
-                        <Label Text="你今天没有课了!" 
+                            <Label Text="你今天没有课了!" 
                            LineBreakMode="WordWrap"
                            TextColor="#757575"
                            FontSize="Small" />
+                        </StackLayout>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnClassScheduleTapped"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
                     </StackLayout>
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnClassScheduleTapped"></TapGestureRecognizer>
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>
-            </Frame>
-        </Grid>
+                </Frame>
+            </Grid>
 
-        <Grid Padding="30,5,30,0">
-            <Frame 
+            <Grid Padding="30,5,30,0">
+                <Frame 
                 WidthRequest="200"
                 VerticalOptions="CenterAndExpand"
                 CornerRadius="10"
                 Padding="0"
                 BackgroundColor="White">
-                <StackLayout Orientation="Horizontal" Padding="10">
-                    <Image WidthRequest="30" Source="ic_equalizer_black_48dp">
-                        <Image.Effects>
-                            <effects:TintImageEffect TintColor="Black" />
-                        </Image.Effects>
-                    </Image>
-                    <StackLayout Padding="10">
-                        <Label Text="成绩" 
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <Image WidthRequest="30" Source="ic_equalizer_black_48dp">
+                            <Image.Effects>
+                                <effects:TintImageEffect TintColor="Black" />
+                            </Image.Effects>
+                        </Image>
+                        <StackLayout Padding="10">
+                            <Label Text="成绩" 
                            LineBreakMode="WordWrap" 
                            TextColor="Black"
                            FontSize="Large" />
-                        <Label Text="课程成绩，加权绩点" 
+                            <Label Text="课程成绩，加权绩点" 
                            LineBreakMode="WordWrap"
                            TextColor="#757575"
                            FontSize="Small" />
-                    </StackLayout>
-                    <!--<StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <!--<StackLayout.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
                     </StackLayout.GestureRecognizers>-->
-                </StackLayout>
-            </Frame>
-        </Grid>
+                    </StackLayout>
+                </Frame>
+            </Grid>
 
-        <Grid Padding="30,5,30,0">
-            <Frame 
+            <Grid Padding="30,5,30,0">
+                <Frame 
                 WidthRequest="200"
                 VerticalOptions="CenterAndExpand"
                 CornerRadius="10"
                 Padding="0"
                 BackgroundColor="White">
-                <StackLayout Orientation="Horizontal" Padding="10">
-                    <Image 
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <Image 
                         WidthRequest="30" 
                         Source="ic_event_note_black_48dp">
-                        <Image.Effects>
-                            <effects:TintImageEffect TintColor="Black" />
-                        </Image.Effects>
-                    </Image>
-                    <StackLayout Padding="10">
-                        <Label Text="考试" 
+                            <Image.Effects>
+                                <effects:TintImageEffect TintColor="Black" />
+                            </Image.Effects>
+                        </Image>
+                        <StackLayout Padding="10">
+                            <Label Text="考试" 
                            LineBreakMode="WordWrap" 
                            TextColor="Black"
                            FontSize="Large" />
-                        <Label Text="考试安排，考场" 
+                            <Label Text="考试安排，考场" 
                            LineBreakMode="WordWrap"
                            TextColor="#757575"
                            FontSize="Small" />
-                    </StackLayout>
-                    <!--<StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <!--<StackLayout.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
                     </StackLayout.GestureRecognizers>-->
-                </StackLayout>
-            </Frame>
-        </Grid>
+                    </StackLayout>
+                </Frame>
+            </Grid>
 
-        <Grid Padding="30,0,30,0">
-            <Frame 
+            <Grid Padding="30,0,30,0">
+                <Frame 
                 WidthRequest="200"
                 VerticalOptions="CenterAndExpand"
                 BorderColor="Transparent"
                 HasShadow="False"
                 Padding="0"
                 BackgroundColor="Transparent">
-                <StackLayout Orientation="Horizontal" Padding="10">
-                    <Image WidthRequest="25" Source="ic_settings_black_48dp">
-                        <Image.Effects>
-                            <effects:TintImageEffect TintColor="Black" />
-                        </Image.Effects>
-                    </Image>
-                    <StackLayout Margin="10,0,0,0">
-                        <Label Text="设置" 
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <Image WidthRequest="25" Source="ic_settings_black_48dp">
+                            <Image.Effects>
+                                <effects:TintImageEffect TintColor="Black" />
+                            </Image.Effects>
+                        </Image>
+                        <StackLayout Margin="10,0,0,0">
+                            <Label Text="设置" 
                                HorizontalTextAlignment="Center"
                                LineBreakMode="WordWrap"
                                TextColor="Black"
                                FontSize="Medium" />
-                    </StackLayout>
-                    <!--<StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <!--<StackLayout.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
                     </StackLayout.GestureRecognizers>-->
-                </StackLayout>
-            </Frame>
-        </Grid>
+                    </StackLayout>
+                </Frame>
+            </Grid>
 
-        <Grid Padding="30,0,30,0">
-            <Frame 
+            <Grid Padding="30,0,30,0">
+                <Frame 
                 WidthRequest="200"
                 VerticalOptions="CenterAndExpand"
                 BorderColor="Transparent"
                 HasShadow="False"
                 Padding="0"
                 BackgroundColor="Transparent">
-                <StackLayout Orientation="Horizontal" Padding="10">
-                    <Image WidthRequest="25" Source="ic_info_black_48dp">
-                        <Image.Effects>
-                            <effects:TintImageEffect TintColor="Black" />
-                        </Image.Effects>
-                    </Image>
-                    <StackLayout Margin="10,0,0,0">
-                        <Label Text="关于" 
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <Image WidthRequest="25" Source="ic_info_black_48dp">
+                            <Image.Effects>
+                                <effects:TintImageEffect TintColor="Black" />
+                            </Image.Effects>
+                        </Image>
+                        <StackLayout Margin="10,0,0,0">
+                            <Label Text="关于" 
                                HorizontalTextAlignment="Center"
                                LineBreakMode="WordWrap"
                                TextColor="Black"
                                FontSize="Medium" />
-                    </StackLayout>
-                    <!--<StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <!--<StackLayout.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
                     </StackLayout.GestureRecognizers>-->
-                </StackLayout>
-            </Frame>
-        </Grid>
+                    </StackLayout>
+                </Frame>
+            </Grid>
 
-    </StackLayout>
-
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

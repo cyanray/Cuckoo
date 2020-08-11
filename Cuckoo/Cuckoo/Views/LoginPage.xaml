@@ -11,53 +11,54 @@
             <controls:InverseBoolConverter x:Key="InverseBool" />
         </ResourceDictionary>
     </ContentPage.Resources>
-
-    <AbsoluteLayout VerticalOptions="Fill">
-        <StackLayout 
+    <ScrollView>
+        <AbsoluteLayout VerticalOptions="Fill">
+            <StackLayout 
             AbsoluteLayout.LayoutFlags="PositionProportional" 
             AbsoluteLayout.LayoutBounds=".5,.5,-1,-1"
             IsVisible="{Binding IsBusy}">
-            <ActivityIndicator 
+                <ActivityIndicator 
             IsRunning="{Binding IsBusy}" />
-            <Label Text="加载学校数据中..."></Label>
-        </StackLayout>
+                <Label Text="加载学校数据中..."></Label>
+            </StackLayout>
 
-        <StackLayout 
+            <StackLayout 
             IsVisible="{Binding IsBusy, Converter={StaticResource InverseBool}}"
             AbsoluteLayout.LayoutFlags="All" 
             AbsoluteLayout.LayoutBounds="0,0,1,1"
             Margin="30,0,30,0">
-            <Image 
+                <Image 
                 HeightRequest="300"
                 Source="{Binding SchoolLogoImageUrl}">
-                <Image.Effects>
-                    <effects:TintImageEffect TintColor="Black" />
-                </Image.Effects>
-            </Image>
-            <Label Text="选择省份:"></Label>
-            <Picker 
+                    <Image.Effects>
+                        <effects:TintImageEffect TintColor="Black" />
+                    </Image.Effects>
+                </Image>
+                <Label Text="选择省份:"></Label>
+                <Picker 
                 x:Name="ProvincePicker"
                 Title="省份" 
                 ItemsSource="{Binding ProvinceItems}" 
                 ItemDisplayBinding="{Binding Name}"
                 SelectedIndexChanged="ProvincePicker_SelectedIndexChanged">
-            </Picker>
-            <Label Text="选择大学:"></Label>
-            <Picker 
+                </Picker>
+                <Label Text="选择大学:"></Label>
+                <Picker 
                 x:Name="SchoolPicker"
                 Title="大学" 
                 ItemsSource="{Binding SchoolItems}" 
                 ItemDisplayBinding="{Binding Name}"
                 SelectedIndexChanged="SchoolPicker_SelectedIndexChanged">
-            </Picker>
+                </Picker>
 
 
-            <Label Text="学号:"></Label>
-            <Entry x:Name="SchoolIdEntry"></Entry>
-            <Label Text="密码:"></Label>
-            <Entry x:Name="PasswordEntry" IsPassword="True"></Entry>
-            <Button WidthRequest="300" Text="登录" Clicked="LoginButton_Clicked"></Button>
+                <Label Text="学号:"></Label>
+                <Entry x:Name="SchoolIdEntry"></Entry>
+                <Label Text="密码:"></Label>
+                <Entry x:Name="PasswordEntry" IsPassword="True"></Entry>
+                <Button WidthRequest="300" Text="登录" Clicked="LoginButton_Clicked"></Button>
 
-        </StackLayout>
-    </AbsoluteLayout>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ScrollView>
 </ContentPage>
