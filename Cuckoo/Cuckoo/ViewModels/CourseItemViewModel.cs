@@ -25,7 +25,7 @@ namespace Cuckoo.ViewModels
 
         public Command LoadItemsCommand { get; set; }
 
-        private int DayOfWeek = 0;
+        private int dayOfWeek = 0;
 
         public CourseItemViewModel()
         {
@@ -35,7 +35,7 @@ namespace Cuckoo.ViewModels
 
         public CourseItemViewModel(int index)
         {
-            DayOfWeek = index;
+            dayOfWeek = index;
             Items = new ObservableCollection<IListItem>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
@@ -47,18 +47,19 @@ namespace Cuckoo.ViewModels
             try
             {
                 IEnumerable<IListItem> items;
-                var semester = SemesterTime.GetThisSemester();
-                var week = await SemesterTime.GetWeekAsync();
+
+                string semester = SemesterTime.GetThisSemester();
+                int week = await SemesterTime.GetWeekAsync();
                 if (Items.Count == 0)
                 {
                     // 第一次获取先从本地文件缓存获取
-                    items = await DataStore.GetCoursesFromCacheAsync(semester, week, DayOfWeek);
+                    items = await DataStore.GetCoursesFromCacheAsync(semester, week, dayOfWeek);
                 }
                 else
                 {
                     // 手动刷新，则从网络Api获取
                     Items.Clear();
-                    items = await DataStore.GetCoursesAsync(semester, week, DayOfWeek);
+                    items = await DataStore.GetCoursesAsync(semester, week, dayOfWeek);
                 }
 
                 foreach (var item in items)
