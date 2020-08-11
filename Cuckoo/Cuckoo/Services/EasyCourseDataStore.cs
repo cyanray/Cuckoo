@@ -15,20 +15,6 @@ namespace Cuckoo.Services
     {
         public async Task<List<IListItem>> GetCoursesAsync(string semester, int week, int dayOfWeek)
         {
-            if (Api.Jw == null)
-            {
-                var userData = await Database.UserDatabase.GetUserDataAsync();
-                Api.Jw = new QzSdk.Qz(userData.RemoteApiHost);
-                try
-                {
-                    await Api.Jw.Login(userData.SchoolId, userData.Password);
-                }
-                catch (Exception ex)
-                {
-                    DependencyService.Get<IToast>().LongAlert(ex.Message);
-                }
-
-            }
             var courses = await Api.Jw.GetCoursesAsync(week, semester);
 
             //var init_list = Enumerable.Repeat(new EmptyItem(), 6).ToList<IListItem>();
