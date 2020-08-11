@@ -59,9 +59,10 @@ namespace Cuckoo.Services
                     Teacher = c.TeacherName
                 };
             }
+            int count = result[dayOfWeek].Count;
             result[dayOfWeek].Insert(0, new GroupItem("上午"));
-            result[dayOfWeek].Insert(result[dayOfWeek].Count / 3 + 1, new GroupItem("下午"));
-            result[dayOfWeek].Insert(result[dayOfWeek].Count * 2 / 3 + 1, new GroupItem("晚上"));
+            result[dayOfWeek].Insert(count / 3 + 1, new GroupItem("下午"));
+            result[dayOfWeek].Insert(count * 2 / 3 + 2, new GroupItem("晚上"));
             return result[dayOfWeek];
         }
 
