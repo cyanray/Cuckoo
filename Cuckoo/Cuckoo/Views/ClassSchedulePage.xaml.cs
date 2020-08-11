@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cuckoo.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,13 @@ namespace Cuckoo.Views
         public ClassSchedulePage()
         {
             InitializeComponent();
+        }
+
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            var week = await SemesterTime.GetWeekAsync();
+            WeekToolbarItem.Text = $"第{week}周";
         }
 
         public async void ToolbarItem_Clicked(object sender, EventArgs e)

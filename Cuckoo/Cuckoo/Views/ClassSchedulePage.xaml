@@ -12,7 +12,7 @@
             Title="课表">
 
     <TabbedPage.ToolbarItems>
-        <ToolbarItem Text="第12周" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+        <ToolbarItem x:Name="WeekToolbarItem" Text="第??周" Clicked="ToolbarItem_Clicked"></ToolbarItem>
     </TabbedPage.ToolbarItems>
     
     <TabbedPage.Children>
