@@ -1,4 +1,5 @@
-﻿using Cuckoo.Utils;
+﻿using Cuckoo.Controls;
+using Cuckoo.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,7 +34,19 @@ namespace Cuckoo.Views
             }
             else
             {
-                this.Welcome.Text = $"{Functions.GreetText()}, {userData.StudentName}";
+                if (Api.Jw == null)
+                {
+                    Api.Jw = new QzSdk.Qz(userData.RemoteApiHost);
+                    try
+                    {
+                        await Api.Jw.Login(userData.SchoolId, userData.Password);
+                    }
+                    catch (Exception ex)
+                    {
+                        DependencyService.Get<IToast>().LongAlert(ex.Message);
+                    }
+                    this.Welcome.Text = $"{Functions.GreetText()}, {userData.StudentName}";
+                }
             }
 
         }
