@@ -94,5 +94,18 @@ namespace QzSdk
             return JsonConvert.DeserializeObject<StudentInfo>(response.Content);
         }
 
+        public async Task<List<Course>> GetCoursesAsync(int week, string semester = "", string schoolId = null)
+        {
+            if (Token == null) throw new Exception("未登录教务系统");
+            if (schoolId == null) schoolId = this.SchoolId;
+            var request = new RestRequest($"app.do?method=getKbcxAzc&xh={schoolId}&xnxqid={semester}&zc={week}");
+            request.AddHeader("token", Token);
+            var response = await ApiClient.ExecuteGetAsync(request);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                throw new Exception("非200状态响应");
+            var json = JArray.Parse(response.Content);
+            return json.ToObject<List<Course>>();
+        }
+
     }
 }
