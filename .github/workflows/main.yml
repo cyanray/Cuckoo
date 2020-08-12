@@ -1,24 +1,15 @@
-on: push
-name: Build and Generate Android Apk
-env:
-  SOLUTION_NAME: Cuckoo
-  ANDROID_PROJECT_NAME: Cuckoo.Android
+name: CI
+on: [push]
 jobs:
   build:
-    name: Build APK
-    runs-on: ubuntu-latest
+    name: Setup Xamarin and Mono versions
+    runs-on: macos-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Building APK
-        uses: fahimshahrierrasel/Xamarin-Droid-Builder@1.0.2
-        with:
-          args: /r:True /t:SignAndroidPackage /p:AndroidSdkDirectory=/android/sdk ${{env.SOLUTION_NAME}}/${{env.ANDROID_PROJECT_NAME}}/${{env.ANDROID_PROJECT_NAME}}.csproj
-      - name: Artifacts
-        run: |
-          mkdir -p apks
-          cp ${{env.SOLUTION_NAME}}/${{env.ANDROID_PROJECT_NAME}}/bin/Debug/*.apk apks
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v1
-        with:
-          name: apks
-          path: apks
+    - name: setup-xamarin
+      uses: maxim-lobanov/setup-xamarin@v1.1
+      with:
+        mono-version: 6.6 # specify version in '<major>.<minor>' format
+        xamarin-ios-version: 13 # specify version in '<major>' format
+        xamarin-mac-version: latest # specify 'latest' keyword to pick up the latest available version
+        xamarin-android-version: 10.1.3.7 # specify full version; it is not recomended option because your pipeline can be broken suddenly in future
+        xcode-version: 11.x # set the latest available Xcode 11
