@@ -14,6 +14,9 @@ namespace Cuckoo.Views
         public MainPage()
         {
             InitializeComponent();
+            XamEffects.Commands.SetTap(CourseFrame, new Command(() => {
+                OnClassScheduleTapped(null,null);
+            }));
         }
 
         protected async override void OnAppearing()

@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:models="clr-namespace:Cuckoo.Models" 
              xmlns:controls="clr-namespace:Cuckoo.Controls"
+             xmlns:xe="clr-namespace:XamEffects;assembly=XamEffects"
              mc:Ignorable="d"
              x:Class="Cuckoo.Views.CoursesListView">
     <ContentPage.Resources>
@@ -16,7 +17,9 @@
                         CornerRadius="10"
                         Padding="0"
                         BackgroundColor="White">
-                        <StackLayout Padding="10">
+                        <StackLayout 
+                            xe:TouchEffect.Color="#909090"
+                            Padding="10">
                             <Label Text="{Binding CourseName}" 
                                 d:Text="{Binding .}"
                                 LineBreakMode="WordWrap" 

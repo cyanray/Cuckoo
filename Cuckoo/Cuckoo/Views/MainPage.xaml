@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:effects="clr-namespace:Cuckoo.Effects"
+             xmlns:xe="clr-namespace:XamEffects;assembly=XamEffects"
              mc:Ignorable="d"
              x:Class="Cuckoo.Views.MainPage"
              Title="Cuckoo"
@@ -24,7 +25,11 @@
                 CornerRadius="10"
                 Padding="0"
                 BackgroundColor="White">
-                    <StackLayout Orientation="Horizontal" Padding="10">
+                    <StackLayout 
+                        x:Name="CourseFrame"
+                        xe:TouchEffect.Color="#909090"
+                        Orientation="Horizontal" 
+                        Padding="10">
                         <Image WidthRequest="30" Source="ic_format_list_bulleted_black_48dp">
                             <Image.Effects>
                                 <effects:TintImageEffect TintColor="Black" />
@@ -40,9 +45,6 @@
                            TextColor="#757575"
                            FontSize="Small" />
                         </StackLayout>
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnClassScheduleTapped"></TapGestureRecognizer>
-                        </StackLayout.GestureRecognizers>
                     </StackLayout>
                 </Frame>
             </Grid>
@@ -117,7 +119,10 @@
                 HasShadow="False"
                 Padding="0"
                 BackgroundColor="Transparent">
-                    <StackLayout Orientation="Horizontal" Padding="10">
+                    <StackLayout 
+                        xe:TouchEffect.Color="#909090"
+                        Orientation="Horizontal" 
+                        Padding="10">
                         <Image WidthRequest="25" Source="ic_settings_black_48dp">
                             <Image.Effects>
                                 <effects:TintImageEffect TintColor="Black" />
@@ -145,7 +150,10 @@
                 HasShadow="False"
                 Padding="0"
                 BackgroundColor="Transparent">
-                    <StackLayout Orientation="Horizontal" Padding="10">
+                    <StackLayout 
+                        xe:TouchEffect.Color="#909090"
+                        Orientation="Horizontal" 
+                        Padding="10">
                         <Image WidthRequest="25" Source="ic_info_black_48dp">
                             <Image.Effects>
                                 <effects:TintImageEffect TintColor="Black" />
