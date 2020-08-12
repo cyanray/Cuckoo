@@ -116,6 +116,8 @@ namespace QzSdk
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 throw new Exception("非200状态响应");
             var json = JArray.Parse(response.Content);
+            // fu*k sh*t qzjw api
+            if (json.Count == 1 && !json[0].HasValues) return new List<Course>();
             return json.ToObject<List<Course>>();
         }
 
