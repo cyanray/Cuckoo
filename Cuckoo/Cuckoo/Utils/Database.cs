@@ -1,7 +1,4 @@
 ﻿using Cuckoo.Services;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Cuckoo.Utils
 {
@@ -26,7 +23,7 @@ namespace Cuckoo.Utils
         {
             get
             {
-                if(courseDatabase == null)
+                if (courseDatabase == null)
                 {
                     courseDatabase = new CourseDatabase();
                 }

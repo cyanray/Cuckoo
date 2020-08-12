@@ -1,13 +1,11 @@
 ﻿using Cuckoo.Services;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 
 namespace Cuckoo.ViewModels
 {
-    public class SemesterSelectionViewModel: BaseViewModel
+    public class SemesterSelectionViewModel : BaseViewModel
     {
         public ObservableCollection<string> Semesters { get; set; }
         public ObservableCollection<int> Weeks { get; set; }
@@ -25,7 +23,7 @@ namespace Cuckoo.ViewModels
             foreach (var w in weeks)
             {
                 Weeks.Add(w);
-                if(w == SemesterTime.Week)
+                if (w == SemesterTime.Week)
                 {
                     WeekSelectedItem = w;
                 }
@@ -33,7 +31,7 @@ namespace Cuckoo.ViewModels
 
 
             var semesters = SemesterTime.GetSemesterAll(2018);
-            foreach(var s in semesters)
+            foreach (var s in semesters)
             {
                 Semesters.Add(s);
                 if (s == SemesterTime.Semester)

@@ -1,7 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace QzSdk.Models
 {
@@ -9,10 +6,10 @@ namespace QzSdk.Models
     {
         [JsonProperty("xh")]
         public string SchoolId { get; set; }
-        
+
         [JsonProperty("xm")]
         public string StudentName { get; set; }
-        
+
         [JsonProperty("yxmc")]
         public string CollegeName { get; set; }
 

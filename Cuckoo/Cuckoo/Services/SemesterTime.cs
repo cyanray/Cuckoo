@@ -1,7 +1,6 @@
 ﻿using Cuckoo.Utils;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Cuckoo.Services
@@ -35,7 +34,7 @@ namespace Cuckoo.Services
             }
             else
             {
-                Semester =  $"{year}-{year + 1}-1";
+                Semester = $"{year}-{year + 1}-1";
             }
             return Semester;
         }

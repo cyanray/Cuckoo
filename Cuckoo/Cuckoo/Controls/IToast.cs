@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Cuckoo.Controls
+﻿namespace Cuckoo.Controls
 {
     public interface IToast
     {

@@ -1,11 +1,6 @@
 ﻿using Cuckoo.Utils;
 using QzSdk.Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.IO;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 

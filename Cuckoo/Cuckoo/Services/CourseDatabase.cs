@@ -4,7 +4,6 @@ using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Cuckoo.Services
@@ -50,9 +49,9 @@ namespace Cuckoo.Services
         {
             return Database
                 .Table<CourseData>()
-                .Where(x=>x.Semester == semester)
-                .Where(x=>x.Week == week)
-                .Where(x=>x.DayOfWeek == dayOfWeek)
+                .Where(x => x.Semester == semester)
+                .Where(x => x.Week == week)
+                .Where(x => x.DayOfWeek == dayOfWeek)
                 .ToListAsync();
         }
 

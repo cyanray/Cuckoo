@@ -5,7 +5,6 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace QzSdk
@@ -13,8 +12,8 @@ namespace QzSdk
     public class Qz
     {
         public static readonly string LogoUrlHost = "http://app.qzdatasoft.com:9876";
-        private string ApiHost;
-        private RestClient ApiClient;
+        private readonly string ApiHost;
+        private readonly RestClient ApiClient;
         static List<Province> Provinces { get; set; } = null;
         static List<School> Schools { get; set; } = null;
 

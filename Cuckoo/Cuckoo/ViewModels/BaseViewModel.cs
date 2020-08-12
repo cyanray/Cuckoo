@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-using Xamarin.Forms;
-
-using Cuckoo.Models;
-
 namespace Cuckoo.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged

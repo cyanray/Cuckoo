@@ -1,13 +1,8 @@
-﻿using Cuckoo.Controls;
-using Cuckoo.Models;
+﻿using Cuckoo.Models;
 using Cuckoo.Utils;
-using Cuckoo.Views;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
 namespace Cuckoo.Services
 {

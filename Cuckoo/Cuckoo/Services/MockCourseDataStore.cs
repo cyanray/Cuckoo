@@ -1,15 +1,12 @@
 ﻿using Cuckoo.Models;
-using Cuckoo.Utils;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Cuckoo.Services
 {
     public class MockCourseDataStore : ICourseDataStore
     {
-        private List<IListItem> Items;
+        private readonly List<IListItem> Items;
 
         public MockCourseDataStore()
         {
