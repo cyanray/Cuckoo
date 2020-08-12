@@ -1,5 +1,6 @@
 ﻿using Cuckoo.Models;
 using Cuckoo.Services;
+using Cuckoo.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -38,10 +39,16 @@ namespace Cuckoo.ViewModels
             dayOfWeek = index;
             Items = new ObservableCollection<IListItem>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            MessagingCenter.Subscribe<SemesterSelectionPage, string>(this, "Refresh", (sender, arg) =>
+            {
+                // Clear all items and will refresh CollectionView
+                Items.Clear();
+            });
         }
 
-        async Task ExecuteLoadItemsCommand()
+        private async Task ExecuteLoadItemsCommand()
         {
+
             IsBusy = true;
 
             try

@@ -16,20 +16,11 @@
     <StackLayout Margin="30,30,30,30">
         
         <Label Text="选择学期:"></Label>
-        <Picker x:Name="semesterPicker">
-            <Picker.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>2018-2019-1</x:String>
-                    <x:String>2018-2019-2</x:String>
-                    <x:String>2019-2020-1</x:String>
-                    <x:String>2019-2020-2</x:String>
-                    <x:String>2020-2021-1</x:String>
-                </x:Array>
-            </Picker.ItemsSource>
+        <Picker x:Name="semesterPicker" ItemsSource="{Binding Semesters}" SelectedItem="{Binding SemesterSelectedItem}">
         </Picker>
         
         <Label Text="选择周次:"></Label>
-        <Picker x:Name="weekPicker" ItemsSource="{Binding Weeks}">
+        <Picker x:Name="weekPicker" ItemsSource="{Binding Weeks}" SelectedItem="{Binding WeekSelectedItem}">
         </Picker>
     </StackLayout>
     

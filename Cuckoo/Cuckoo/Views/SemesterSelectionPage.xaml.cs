@@ -26,6 +26,7 @@ namespace Cuckoo.Views
         {
             SemesterTime.Semester = (string)semesterPicker.SelectedItem;
             SemesterTime.Week = (int)weekPicker.SelectedItem;
+            MessagingCenter.Send(this, "Refresh", string.Empty);
             await Navigation.PopModalAsync();
         }
 
