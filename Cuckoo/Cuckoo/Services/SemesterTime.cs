@@ -31,12 +31,13 @@ namespace Cuckoo.Services
             int year = DateTime.Now.Year;
             if (DateTime.Now.Month < 8)
             {
-                return $"{year - 1}-{year}-2";
+                Semester = $"{year - 1}-{year}-2";
             }
             else
             {
-                return $"{year}-{year + 1}-2";
+                Semester =  $"{year}-{year + 1}-1";
             }
+            return Semester;
         }
 
         public async static Task<int> GetWeekAsync()
