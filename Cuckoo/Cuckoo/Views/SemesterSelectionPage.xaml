@@ -16,11 +16,18 @@
     <StackLayout Margin="30,30,30,30">
         
         <Label Text="选择学期:"></Label>
-        <Picker x:Name="semesterPicker" ItemsSource="{Binding Semesters}" SelectedItem="{Binding SemesterSelectedItem}">
+        <Picker 
+            x:Name="semesterPicker" 
+            ItemsSource="{Binding Semesters}" 
+            SelectedItem="{Binding SemesterSelectedItem}" 
+            ItemDisplayBinding="{Binding DisplayTitle}">
         </Picker>
         
         <Label Text="选择周次:"></Label>
-        <Picker x:Name="weekPicker" ItemsSource="{Binding Weeks}" SelectedItem="{Binding WeekSelectedItem}">
+        <Picker 
+            x:Name="weekPicker" 
+            ItemsSource="{Binding Weeks}" 
+            SelectedItem="{Binding WeekSelectedItem}">
         </Picker>
     </StackLayout>
     

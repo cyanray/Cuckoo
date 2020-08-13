@@ -1,4 +1,5 @@
-﻿using Cuckoo.Services;
+﻿using Cuckoo.Models;
+using Cuckoo.Services;
 using Cuckoo.ViewModels;
 using System;
 
@@ -19,7 +20,7 @@ namespace Cuckoo.Views
 
         private async void Save_Clicked(object sender, EventArgs eventArgs)
         {
-            SemesterTime.Semester = (string)semesterPicker.SelectedItem;
+            SemesterTime.Semester = ((SemesterDisplayItem)semesterPicker.SelectedItem).Semester;
             SemesterTime.Week = (int)weekPicker.SelectedItem;
             MessagingCenter.Send(this, "Refresh", string.Empty);
             await Navigation.PopModalAsync();
