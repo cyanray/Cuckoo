@@ -1,4 +1,5 @@
 ﻿using Cuckoo.Services;
+using Cuckoo.Utils;
 using System;
 
 using Xamarin.Forms;
@@ -53,7 +54,7 @@ namespace Cuckoo.Views
         private void ToolbarItem_Clicked_2(object sender, EventArgs e)
         {
             int t = SemesterTime.Week + 1;
-            if (t <= 20)
+            if (t <= Constants.MaxWeekNumber)
             {
                 SemesterTime.Week += 1;
                 DisplayWeekToolItem(SemesterTime.Week);

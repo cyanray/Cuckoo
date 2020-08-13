@@ -7,6 +7,11 @@ namespace Cuckoo.Utils
     {
         public const string DatabaseFilename = "Cuckoo.db3";
 
+        /// <summary>
+        /// 一个学期最大周数
+        /// </summary>
+        public const int MaxWeekNumber = 20;
+
         public const SQLite.SQLiteOpenFlags DatabaseFlags =
             // open the database in read/write mode
             SQLite.SQLiteOpenFlags.ReadWrite |
