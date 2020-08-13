@@ -34,6 +34,11 @@ namespace Cuckoo.Services
             }
         }
 
+        public UserData GetUserData()
+        {
+            return Database.Table<UserData>().FirstOrDefaultAsync().Result;
+        }
+
         public Task<UserData> GetUserDataAsync()
         {
             return Database.Table<UserData>().FirstOrDefaultAsync();
