@@ -1,4 +1,5 @@
 ﻿using Cuckoo.Services;
+using Cuckoo.Utils;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -29,8 +30,9 @@ namespace Cuckoo.ViewModels
                 }
             }
 
+            var userData = Database.UserDatabase.GetUserData();
 
-            var semesters = SemesterTime.GetSemesterAll(2018);
+            var semesters = SemesterTime.GetSemesterAll(Int32.Parse(userData.Grade));
             foreach (var s in semesters)
             {
                 Semesters.Add(s);

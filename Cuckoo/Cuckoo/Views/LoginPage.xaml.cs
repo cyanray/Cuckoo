@@ -89,7 +89,8 @@ namespace Cuckoo.Views
                     Password = PasswordEntry.Text,
                     RemoteApiHost = apiHost,
                     SchoolName = ((School)SchoolPicker.SelectedItem).Name,
-                    StudentName = studentInfo.StudentName
+                    StudentName = studentInfo.StudentName,
+                    Grade = studentInfo.Grade
                 };
                 await Database.UserDatabase.SaveUserDataAsync(userData);
                 DependencyService.Get<IToast>().LongAlert("登录成功");

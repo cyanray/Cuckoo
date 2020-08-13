@@ -13,5 +13,6 @@ namespace Cuckoo.Models
         public string Password { get; set; }
         public string SchoolName { get; set; }
         public string RemoteApiHost { get; set; }
+        public string Grade { get; set; }
     }
 }
