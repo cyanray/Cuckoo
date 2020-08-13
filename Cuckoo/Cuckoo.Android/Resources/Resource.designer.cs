@@ -10149,64 +10149,70 @@ namespace Cuckoo.Droid
 			public const int ic_mtrl_chip_close_circle = 2131165288;
 			
 			// aapt resource value: 0x7F070069
-			public const int ic_settings_black_48dp = 2131165289;
+			public const int ic_navigate_before_black_36dp = 2131165289;
 			
 			// aapt resource value: 0x7F07006A
-			public const int login_banner = 2131165290;
+			public const int ic_navigate_next_black_36dp = 2131165290;
 			
 			// aapt resource value: 0x7F07006B
-			public const int logo_1 = 2131165291;
+			public const int ic_settings_black_48dp = 2131165291;
 			
 			// aapt resource value: 0x7F07006C
-			public const int mtrl_snackbar_background = 2131165292;
+			public const int login_banner = 2131165292;
 			
 			// aapt resource value: 0x7F07006D
-			public const int mtrl_tabs_default_indicator = 2131165293;
+			public const int logo_1 = 2131165293;
 			
 			// aapt resource value: 0x7F07006E
-			public const int navigation_empty_icon = 2131165294;
+			public const int mtrl_snackbar_background = 2131165294;
 			
 			// aapt resource value: 0x7F07006F
-			public const int notification_action_background = 2131165295;
+			public const int mtrl_tabs_default_indicator = 2131165295;
 			
 			// aapt resource value: 0x7F070070
-			public const int notification_bg = 2131165296;
+			public const int navigation_empty_icon = 2131165296;
 			
 			// aapt resource value: 0x7F070071
-			public const int notification_bg_low = 2131165297;
+			public const int notification_action_background = 2131165297;
 			
 			// aapt resource value: 0x7F070072
-			public const int notification_bg_low_normal = 2131165298;
+			public const int notification_bg = 2131165298;
 			
 			// aapt resource value: 0x7F070073
-			public const int notification_bg_low_pressed = 2131165299;
+			public const int notification_bg_low = 2131165299;
 			
 			// aapt resource value: 0x7F070074
-			public const int notification_bg_normal = 2131165300;
+			public const int notification_bg_low_normal = 2131165300;
 			
 			// aapt resource value: 0x7F070075
-			public const int notification_bg_normal_pressed = 2131165301;
+			public const int notification_bg_low_pressed = 2131165301;
 			
 			// aapt resource value: 0x7F070076
-			public const int notification_icon_background = 2131165302;
+			public const int notification_bg_normal = 2131165302;
 			
 			// aapt resource value: 0x7F070077
-			public const int notification_template_icon_bg = 2131165303;
+			public const int notification_bg_normal_pressed = 2131165303;
 			
 			// aapt resource value: 0x7F070078
-			public const int notification_template_icon_low_bg = 2131165304;
+			public const int notification_icon_background = 2131165304;
 			
 			// aapt resource value: 0x7F070079
-			public const int notification_tile_bg = 2131165305;
+			public const int notification_template_icon_bg = 2131165305;
 			
 			// aapt resource value: 0x7F07007A
-			public const int notify_panel_notification_icon_bg = 2131165306;
+			public const int notification_template_icon_low_bg = 2131165306;
 			
 			// aapt resource value: 0x7F07007B
-			public const int tooltip_frame_dark = 2131165307;
+			public const int notification_tile_bg = 2131165307;
 			
 			// aapt resource value: 0x7F07007C
-			public const int tooltip_frame_light = 2131165308;
+			public const int notify_panel_notification_icon_bg = 2131165308;
+			
+			// aapt resource value: 0x7F07007D
+			public const int tooltip_frame_dark = 2131165309;
+			
+			// aapt resource value: 0x7F07007E
+			public const int tooltip_frame_light = 2131165310;
 			
 			static Drawable()
 			{
@@ -11164,11 +11170,11 @@ namespace Cuckoo.Droid
 		public partial class Mipmap
 		{
 			
-			// aapt resource value: 0x7F0C0005
-			public const int icon = 2131492869;
+			// aapt resource value: 0x7F0C0007
+			public const int icon = 2131492871;
 			
-			// aapt resource value: 0x7F0C0006
-			public const int icon_round = 2131492870;
+			// aapt resource value: 0x7F0C0008
+			public const int icon_round = 2131492872;
 			
 			// aapt resource value: 0x7F0C0000
 			public const int ic_equalizer_black_48dp = 2131492864;
@@ -11183,10 +11189,16 @@ namespace Cuckoo.Droid
 			public const int ic_info_black_48dp = 2131492867;
 			
 			// aapt resource value: 0x7F0C0004
-			public const int ic_settings_black_48dp = 2131492868;
+			public const int ic_navigate_before_black_36dp = 2131492868;
 			
-			// aapt resource value: 0x7F0C0007
-			public const int launcher_foreground = 2131492871;
+			// aapt resource value: 0x7F0C0005
+			public const int ic_navigate_next_black_36dp = 2131492869;
+			
+			// aapt resource value: 0x7F0C0006
+			public const int ic_settings_black_48dp = 2131492870;
+			
+			// aapt resource value: 0x7F0C0009
+			public const int launcher_foreground = 2131492873;
 			
 			static Mipmap()
 			{

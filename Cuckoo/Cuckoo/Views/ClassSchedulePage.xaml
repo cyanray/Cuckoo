@@ -12,7 +12,9 @@
             Title="课表">
 
     <TabbedPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_navigate_before_black_36dp"></ToolbarItem>
         <ToolbarItem x:Name="WeekToolbarItem" Text="第??周" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+        <ToolbarItem IconImageSource="ic_navigate_next_black_36dp"></ToolbarItem>
     </TabbedPage.ToolbarItems>
     
     <TabbedPage.Children>
