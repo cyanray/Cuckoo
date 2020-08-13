@@ -40,8 +40,13 @@ namespace Cuckoo.ViewModels
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
             MessagingCenter.Subscribe<SemesterSelectionPage, string>(this, "Refresh", (sender, arg) =>
             {
-                // Clear all items and will refresh CollectionView
-                Items.Clear();
+                // refresh CollectionView
+                IsBusy = true;
+            });
+            MessagingCenter.Subscribe<ClassSchedulePage, string>(this, "Refresh", async (sender, arg) =>
+            {
+                // refresh CollectionView
+                IsBusy = true;
             });
         }
 

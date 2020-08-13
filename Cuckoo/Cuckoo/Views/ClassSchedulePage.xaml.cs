@@ -18,7 +18,7 @@ namespace Cuckoo.Views
         {
             base.OnAppearing();
             var week = await SemesterTime.GetWeekAsync();
-            WeekToolbarItem.Text = $"第{week}周";
+            DisplayWeekToolItem(week);
             int w = FormatDayOfWeek(DateTime.Now.DayOfWeek);
             this.SelectedItem = this.Children[w];
         }
@@ -29,9 +29,36 @@ namespace Cuckoo.Views
             else return (int)w - 1;
         }
 
+        private void DisplayWeekToolItem(int week)
+        {
+            WeekToolbarItem.Text = $"第{week}周";
+        }
+
         public async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new SemesterSelectionPage()));
+        }
+
+        private void ToolbarItem_Clicked_1(object sender, EventArgs e)
+        {
+            int t = SemesterTime.Week - 1;
+            if (t >= 1)
+            {
+                SemesterTime.Week -= 1;
+                DisplayWeekToolItem(SemesterTime.Week);
+                MessagingCenter.Send(this, "Refresh", string.Empty);
+            }
+        }
+
+        private void ToolbarItem_Clicked_2(object sender, EventArgs e)
+        {
+            int t = SemesterTime.Week + 1;
+            if (t <= 20)
+            {
+                SemesterTime.Week += 1;
+                DisplayWeekToolItem(SemesterTime.Week);
+                MessagingCenter.Send(this, "Refresh", string.Empty);
+            }
         }
     }
 }
