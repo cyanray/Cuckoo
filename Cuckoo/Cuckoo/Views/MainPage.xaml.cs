@@ -14,8 +14,9 @@ namespace Cuckoo.Views
         public MainPage()
         {
             InitializeComponent();
-            XamEffects.Commands.SetTap(CourseFrame, new Command(() => {
-                OnClassScheduleTapped(null,null);
+            XamEffects.Commands.SetTap(CourseFrame, new Command(() =>
+            {
+                OnClassScheduleTapped(null, null);
             }));
         }
 
@@ -43,8 +44,8 @@ namespace Cuckoo.Views
                     {
                         DependencyService.Get<IToast>().LongAlert(ex.Message);
                     }
-                    this.Welcome.Text = $"{Functions.GreetText()}, {userData.StudentName}";
                 }
+                this.Welcome.Text = $"{Functions.GreetText()}, {userData.StudentName}";
             }
 
         }
