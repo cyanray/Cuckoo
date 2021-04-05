@@ -1,5 +1,6 @@
-﻿using Cuckoo.ViewModels;
-
+﻿using Cuckoo.Models;
+using Cuckoo.ViewModels;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -31,5 +32,9 @@ namespace Cuckoo.Views
                 viewModel.IsBusy = true;
         }
 
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new CourseDetails());
+        }
     }
 }
