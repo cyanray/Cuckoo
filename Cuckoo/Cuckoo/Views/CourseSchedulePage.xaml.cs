@@ -8,9 +8,9 @@ using Xamarin.Forms.Xaml;
 namespace Cuckoo.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ClassSchedulePage : TabbedPage
+    public partial class CourseSchedulePage : TabbedPage
     {
-        public ClassSchedulePage()
+        public CourseSchedulePage()
         {
             InitializeComponent();
         }
@@ -32,7 +32,7 @@ namespace Cuckoo.Views
 
         private void DisplayWeekToolItem(int week)
         {
-            WeekToolbarItem.Text = $"第{week}周";
+            WeekToolbarItem.Text = $"第 {week} 周";
         }
 
         public async void ToolbarItem_Clicked(object sender, EventArgs e)

@@ -43,7 +43,7 @@ namespace Cuckoo.ViewModels
                 // refresh CollectionView
                 IsBusy = true;
             });
-            MessagingCenter.Subscribe<ClassSchedulePage, string>(this, "Refresh", (sender, arg) =>
+            MessagingCenter.Subscribe<CourseSchedulePage, string>(this, "Refresh", (sender, arg) =>
             {
                 // refresh CollectionView
                 IsBusy = true;

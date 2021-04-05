@@ -28,7 +28,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\ClassSchedulePage.xaml">
+    <Compile Update="Views\CourseSchedulePage.xaml.cs">
+      <DependentUpon>CourseSchedulePage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\CourseSchedulePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CourseDetails.xaml">

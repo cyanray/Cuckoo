@@ -52,7 +52,7 @@ namespace Cuckoo.Views
 
         async void OnClassScheduleTapped(object sender, EventArgs args)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new ClassSchedulePage()));
+            await Navigation.PushModalAsync(new NavigationPage(new CourseSchedulePage()));
         }
 
         private async void Logout_ToolbarItem_Clicked(object sender, EventArgs e)
