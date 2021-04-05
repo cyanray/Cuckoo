@@ -37,7 +37,8 @@ namespace Cuckoo.Services
                 {
                     CourseName = c.CourseName,
                     Classroom = c.Classroom,
-                    Teacher = c.TeacherName
+                    Teacher = c.TeacherName,
+                    BeginTime = c.BeginTime
                 };
             }
             int count = result[dayOfWeek].Count;

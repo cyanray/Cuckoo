@@ -25,11 +25,18 @@
                                 LineBreakMode="WordWrap" 
                                 TextColor="#333333"
                                 FontSize="20" />
-                            <Label Text="{Binding Classroom}" 
+                            <StackLayout Orientation="Horizontal">
+                                <Label HorizontalOptions="Start" Text="{Binding Classroom}" 
                                 d:Text="classroom"
                                 LineBreakMode="NoWrap"
                                 TextColor="#757575"
                                 FontSize="13" />
+                                <Label HorizontalOptions="EndAndExpand" Text="{Binding BeginTime}" 
+                                d:Text="classroom"
+                                LineBreakMode="NoWrap"
+                                TextColor="#757575"
+                                FontSize="13" />
+                            </StackLayout>
                         </StackLayout>
                     </Frame>
                 </Grid>
